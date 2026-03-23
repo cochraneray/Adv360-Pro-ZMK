@@ -11,6 +11,20 @@
       #include "macros.dtsi"
       #include "version.dtsi"
 
+      cp_key: copy_key {
+          compatible = "zmk,behavior-mod-morph";
+          #binding-cells = <0>;
+          bindings = <&kp LC(C)>, <&kp LS(LC(C))>;
+          mods = <(MOD_LSFT|MOD_RSFT)>;
+      };
+
+      pst_key: paste_key {
+          compatible = "zmk,behavior-mod-morph";
+          #binding-cells = <0>;
+          bindings = <&kp LC(V)>, <&kp LS(LC(V))>;
+          mods = <(MOD_LSFT|MOD_RSFT)>;
+      };
+
       hm: homerow_mods {
           compatible = "zmk,behavior-hold-tap";
           label = "HOMEROW_MODS";
@@ -39,9 +53,9 @@
       display-name = "Kp";
       bindings = <
         &kp EQUAL &kp N1   &kp N2    &kp N3  &kp N4  &kp N5 &trans                                                              &mo 3 &kp N6 &kp KP_NUM &kp KP_EQUAL &kp KP_DIVIDE &kp KP_MULTIPLY &kp MINUS
-        &kp TAB   &kp SQT  &kp COMMA &kp DOT &kp P   &kp Y  &none                                                               &none &kp Y  &kp KP_N7  &kp KP_N8    &kp KP_N9     &kp KP_MINUS    &kp BSLH
+        &kp TAB   &kp SQT  &kp COMMA &kp DOT &kp P   &kp Y  &none                                                               &none &kp Y  &kp KP_N7  &cp_key      &kp KP_N9     &kp KP_MINUS    &kp BSLH
         &kp ESC   &kp A    &kp O     &kp E   &kp U   &kp I  &none           &kp LCTRL &kp LSHFT &kp LGUI  &kp RCTRL              &none &kp H  &kp KP_N4  &kp KP_N5    &kp KP_N6     &kp KP_PLUS     &kp SQT
-        &kp LALT  &kp SEMI &kp Q     &kp J   &kp K   &kp X                            &kp HOME &kp PG_UP                              &kp N  &kp KP_N1  &kp KP_N2    &kp KP_N3     &kp KP_ENTER    &kp RSHFT
+        &kp LALT  &kp SEMI &kp Q     &kp J   &kp K   &kp X                            &kp HOME &kp PG_UP                              &kp N  &kp KP_N1  &pst_key     &kp KP_N3     &kp KP_ENTER    &kp RSHFT
         &mo 2     &kp GRAVE &kp CAPS &kp LEFT &kp RIGHT              &kp BSPC &kp DEL  &kp END  &kp PG_DN &kp ENTER &kp KP_N0              &kp UP     &kp DOWN     &kp KP_DOT    &kp RBKT        &mo 2
       >;
     };
