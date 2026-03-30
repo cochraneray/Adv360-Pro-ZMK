@@ -11,6 +11,43 @@
       #include "macros.dtsi"
       #include "version.dtsi"
 
+      mm_lbrc: mm_lbrc {
+          compatible = "zmk,behavior-mod-morph";
+          #binding-cells = <0>;
+          bindings = <&kp LBRC>, <&macro_braces>;
+          mods = <(MOD_LSFT|MOD_RSFT)>;
+      };
+      mm_rbrc: mm_rbrc {
+          compatible = "zmk,behavior-mod-morph";
+          #binding-cells = <0>;
+          bindings = <&kp RBRC>, <&macro_braces>;
+          mods = <(MOD_LSFT|MOD_RSFT)>;
+      };
+      mm_lpar: mm_lpar {
+          compatible = "zmk,behavior-mod-morph";
+          #binding-cells = <0>;
+          bindings = <&kp LPAR>, <&macro_parens>;
+          mods = <(MOD_LSFT|MOD_RSFT)>;
+      };
+      mm_rpar: mm_rpar {
+          compatible = "zmk,behavior-mod-morph";
+          #binding-cells = <0>;
+          bindings = <&kp RPAR>, <&macro_parens>;
+          mods = <(MOD_LSFT|MOD_RSFT)>;
+      };
+      mm_lbkt: mm_lbkt {
+          compatible = "zmk,behavior-mod-morph";
+          #binding-cells = <0>;
+          bindings = <&kp LBKT>, <&macro_brackets>;
+          mods = <(MOD_LSFT|MOD_RSFT)>;
+      };
+      mm_rbkt: mm_rbkt {
+          compatible = "zmk,behavior-mod-morph";
+          #binding-cells = <0>;
+          bindings = <&kp RBKT>, <&macro_brackets>;
+          mods = <(MOD_LSFT|MOD_RSFT)>;
+      };
+
       hm: homerow_mods {
           compatible = "zmk,behavior-hold-tap";
           label = "HOMEROW_MODS";
@@ -38,11 +75,11 @@
     keypad {
       display-name = "Kp";
       bindings = <
-        &kp EQUAL &kp N1   &kp N2    &kp N3  &kp N4  &kp N5 &trans                                                              &mo 3 &kp N6 &kp KP_NUM &kp KP_EQUAL &kp KP_DIVIDE &kp KP_MULTIPLY &kp MINUS
-        &kp TAB   &kp SQT  &kp COMMA &kp DOT &kp P   &kp Y  &none                                                               &none &kp Y  &kp KP_N7  &kp KP_N8    &kp KP_N9     &kp KP_MINUS    &kp BSLH
-        &kp ESC   &kp A    &kp O     &kp E   &kp U   &kp I  &none           &kp LCTRL &kp LSHFT &kp LGUI  &kp RCTRL              &none &kp H  &kp KP_N4  &kp KP_N5    &kp KP_N6     &kp KP_PLUS     &kp SQT
-        &kp LALT  &kp SEMI &kp Q     &kp J   &kp K   &kp X                            &kp HOME &kp PG_UP                              &kp N  &kp KP_N1  &kp KP_N2    &kp KP_N3     &kp KP_ENTER    &kp RSHFT
-        &mo 2     &kp GRAVE &kp CAPS &kp LEFT &kp RIGHT              &kp BSPC &kp DEL  &kp END  &kp PG_DN &kp ENTER &kp KP_N0              &kp UP     &kp DOWN     &kp KP_DOT    &kp RBKT        &mo 2
+        &kp EQUAL &kp N1   &kp N2    &kp N3  &kp N4  &kp N5 &trans                                                              &mo 3 &kp N6 &kp KP_DIVIDE &kp KP_MULTIPLY &kp KP_MINUS &kp KP_PLUS &kp MINUS
+        &kp TAB   &kp SQT  &kp COMMA &kp DOT &kp P   &kp Y  &none                                                               &none &none  &kp KP_N7  &kp KP_N8    &kp KP_N9     &kp KP_EQUAL    &kp BSLH
+        &kp ESC   &kp A    &kp O     &kp E   &kp U   &kp I  &none           &kp LCTRL &kp LSHFT &kp LGUI  &kp RCTRL              &none &none  &kp KP_N4  &kp KP_N5    &kp KP_N6     &kp KP_DOT      &none
+        &kp LALT  &kp SEMI &kp Q     &kp J   &kp K   &kp X                            &kp HOME &kp PG_UP                              &none  &kp KP_N1  &kp KP_N2    &kp KP_N3     &kp KP_ENTER    &kp RSHFT
+        &mo 2     &kp GRAVE &kp CAPS &kp LEFT &kp RIGHT              &kp BSPC &kp DEL  &kp END  &kp PG_DN &kp ENTER &kp KP_N0              &kp UP     &kp DOWN     &none         &none           &mo 2
       >;
     };
     fn {
@@ -50,7 +87,7 @@
       bindings = <
         &kp F1 &kp F2 &kp F3 &kp F4 &kp F5 &kp F6 &tog 1                                           &mo 3 &kp F7 &kp F8 &kp F9 &kp F10 &kp F11 &kp F12
         &trans &trans &trans &trans &trans &trans  &none                                           &none &trans &trans &trans &trans  &trans  &trans
-        &trans &trans &trans &trans &trans &trans  &none        &trans &trans &trans &trans        &none &trans &trans &trans &trans  &trans  &trans
+        &trans &mm_lbrc &mm_rbrc &mm_lpar &mm_rpar &kp EQUAL  &none        &trans &trans &trans &trans        &none &mm_lbkt &mm_rbkt &kp MINUS &kp UNDER &kp PIPE  &trans
         &trans &trans &trans &trans &trans &trans                      &trans &trans                     &trans &trans &trans &trans  &trans  &trans
         &trans &trans &trans &trans &trans               &trans &trans &trans &trans &trans &trans              &trans &trans &trans  &trans  &trans
       >;
