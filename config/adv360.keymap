@@ -47,6 +47,18 @@
           bindings = <&kp RBKT>, <&macro_brackets>;
           mods = <(MOD_LSFT|MOD_RSFT)>;
       };
+      mm_squote: mm_squote {
+          compatible = "zmk,behavior-mod-morph";
+          #binding-cells = <0>;
+          bindings = <&kp SQT>, <&macro_quotes>;
+          mods = <(MOD_LSFT|MOD_RSFT)>;
+      };
+      mm_dquote: mm_dquote {
+          compatible = "zmk,behavior-mod-morph";
+          #binding-cells = <0>;
+          bindings = <&kp DQT>, <&macro_dquotes>;
+          mods = <(MOD_LSFT|MOD_RSFT)>;
+      };
 
       hm: homerow_mods {
           compatible = "zmk,behavior-hold-tap";
@@ -88,7 +100,7 @@
         &kp F1 &kp F2 &kp F3 &kp F4 &kp F5 &kp F6 &tog 1                                           &mo 3 &kp F7 &kp F8 &kp F9 &kp F10 &kp F11 &kp F12
         &trans &trans &trans &trans &trans &trans  &none                                           &none &trans &trans &trans &trans  &trans  &trans
         &trans &mm_lbrc &mm_rbrc &mm_lpar &mm_rpar &kp EQUAL  &none        &trans &trans &trans &trans        &none &mm_lbkt &mm_rbkt &kp MINUS &kp UNDER &kp PIPE  &trans
-        &trans &trans &trans &trans &trans &trans                      &trans &trans                     &trans &trans &trans &trans  &trans  &trans
+        &trans &trans &trans &trans &trans &trans                      &trans &trans                     &mm_squote &mm_dquote &trans &trans  &trans  &trans
         &trans &trans &trans &trans &trans               &trans &trans &trans &trans &trans &trans              &trans &trans &trans  &trans  &trans
       >;
     };
